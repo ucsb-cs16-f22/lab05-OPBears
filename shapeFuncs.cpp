@@ -70,7 +70,12 @@ bool pointsApproxEqual(Point p1,
 }
 
 bool boxesApproxEqual(Box b1, Box b2, double tolerance) {
+  
+  if(pointsApproxEqual(b1.ul, b2.ul) && fabs(b1.width - b2.width) < tolerance && fabs(b1.height - b2.height) < tolerance){
+    return true;
 
+  }
+  
   // Two boxes are approximately equal if their upper left corners are approximately 
   // equal, and if their corresponding widths and height are approx equal.
 
