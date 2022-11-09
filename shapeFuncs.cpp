@@ -50,10 +50,28 @@ string pointToString(Point p, int precision) {
 }
 
 string boxToString(Box b, int precision) {
+  ostringstream sg;
   
   // SAMPLE FORMAT (precision = 2): "ul=(3.4,-5),w=5,h=7"
+  sg << "ul=(";
+  sg << setprecision(precision-1) << fixed;
+  sg << (b.ul.x);
   
-  return "stub!"; // TODO: Delete this line and comment and replace with appropriate code
+  sg << ",";
+  sg << setprecision(precision-1) << fixed;
+  sg << (b.ul.y);
+  
+  sg << "),w=";
+  sg << setprecision(precision-1) << fixed;
+  sg << (b.width);
+  
+  sg << ",h=";
+  sg << setprecision(precision-1) << fixed;
+  sg << (b.height);
+  
+  
+  return sg.str();
+   // TODO: Delete this line and comment and replace with appropriate code
 }
  
 
